@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+ name: myapp-deployment
+spec:
+ template:
+  metadata:
+   labels:
+    app: nginx
+  spec:
+   containers:
+   - name: c1
+     image: quay.io/pranavadmin/ecom:v1
+     imagePullPolicy: IfNotPresent
+ replicas: 3
+ selector:
+  matchLabels:
+   app: nginx
